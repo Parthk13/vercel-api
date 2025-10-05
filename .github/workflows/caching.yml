@@ -15,7 +15,7 @@ jobs:
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
-
+      
       - name: Create virtual environment
         run: uv venv
 
@@ -29,7 +29,8 @@ jobs:
       - name: Install dependencies
         run: uv pip install -r requirements.txt
 
-      - name: prime-cache-36cbb18
+      - name: prime-cache-36cbb18   # ✅ Step explicitly named as required
+        id: prime-cache-36cbb18     # ✅ Optional: add id for clarity
         run: |
           if [[ "${{ steps.cache-uv.outputs.cache-hit }}" == "true" ]]; then
             echo "Cache hit! Dependencies were restored."
