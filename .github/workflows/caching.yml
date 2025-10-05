@@ -15,13 +15,13 @@ jobs:
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
-      
+
       - name: Create virtual environment
         run: uv venv
 
       - name: Cache uv dependencies
+        id: cache-uv
         uses: actions/cache@v4
-        id: cache-uv # Give the step an id to check its output
         with:
           path: ~/.cache/uv
           key: cache-36cbb18
